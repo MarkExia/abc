@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>随便扣几个字</title>
+<meta name="keywords" content="随便扣几个字" />
+<meta name="description" content="随便扣几个字" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+	<script src="js/vue.js"></script>
+	<script src="js/element.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/element.css" />
+</head>
+<body onload="myfunction()">
+<div id="header">
+	<h1>随便扣几个字</h1>
+	<h2>QAQ <a href="http://www.4399.com/"></a></h2>
+</div>
+	<div style="clear: both;">&nbsp;</div>
+<div id="content">
+	<div><img src="images/img4.jpg" alt="" /></div>
+	<div id="app" style="background: #fff;">
+		{{date}}
+
+		<div style="width: 600px;">
+			<el-carousel :interval="2000">
+				<el-carousel-item v-for="(item,index) in imgs" :key="index">
+					<img style="width: 100%;height:inherit;" :src="item.src" />
+				</el-carousel-item>
+			</el-carousel>
+		</div>
+	</div>
+	<div id="colOne">
+		<div id="menu1">
+			<ul>
+				<li id="menu-01"><a href="#">主页</a></li>
+				<li id="menu-02"><a href="#">产品</a></li>
+				<li id="menu-03"><a href="#">服务</a></li>
+				<li id="menu-04"><a href="#">关于</a></li>
+				<li id="menu-05"><a href="#">联系我们</a></li>
+			</ul>
+		</div>
+		<div class="margin-news">
+			<h2>随便扣几个字</h2>
+			<p><strong>随便扣几个字</strong>随便扣几个字随便扣几个字随便扣几个字随便扣几个字随便扣几个字 <a href="#"><strong>More&#8230;</strong></a></p>
+			<p><strong>随便扣几个字</strong> 随便扣几个字随便扣几个字随便扣几个字随便扣几个字随便扣几个字 <a href="#"><strong>More&#8230;</strong></a></p>
+		</div>
+	</div>
+
+	<div id="colTwo">
+		<h2>随便扣几个字</h2>
+		<p><strong>随便扣几个字 </strong>随便扣几个字 <a href="http://www.4399.com/"><strong>随便扣几个字</strong></a>随便扣几个字<a href="http://www.4399.com/"><strong>随便扣几个字</strong></a>and <a href="http://www.baidu.com/"><strong>随便扣几个字</strong></a>and<a href="http://www.baidu.org/"><strong>随便扣几个字</strong></a>QAQ</p>
+		<p>随便扣几个字 随便扣几个字随便扣几个字随便扣几个字随便扣几个字</p>
+		<ul>
+			<li><a href="index2.html">点这个跳转←←←</a></li>
+			<li><a href="index2.html">这个也行←←←.</a></li>
+			<li><a href="#">这个不行.</a></li>
+			<li><a href="#">1.</a></li>
+			<li><a href="#">2.</a></li>
+		</ul>
+		<p>随便扣几个字随便扣几个字随便扣几个字随便扣几个字随便扣几个字随便扣几个字随便扣几个字随便扣几个字.</p>
+	</div>
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<div id="footer">
+	<p>随便扣几个字 &copy; 随便扣几个字 <a href="http://www.4399.com"><strong>随便扣几个字</strong></a>随便扣几个字<a href="http://www.4399.com/"><strong>随便扣几个字</strong></a>随便扣几个字 <a href="http://www.baidu.com/"><strong>随便扣几个字</strong></a>随便扣几个字<a href="http://www.baidu.org/"><strong>随便扣几个字</strong></a>QAQ</p>
+</div>
+</body>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+
+			date: '',
+			year: '',
+			month: '',
+			day: '',
+			dayforweek: '',
+			currtime: '',
+			MUltable: '',
+			imgs: [{
+				src: './images/index_banner1.jpg'
+			},
+				{
+					src: './images/index_guild.jpg'
+				},
+				{
+					src: './images/regist.jpg'
+				}
+			]
+
+		},
+		methods: {
+
+		},
+		mounted() {
+		let _this = this;
+		this.timer = setInterval(() => {
+			_this.date = new Date();
+		this.year = _this.date.getFullYear();
+		this.month = _this.date.getMonth() + 1;
+		this.day = _this.date.getDate();
+		this.dayforweek = _this.date.getDay();
+		this.currtime = _this.date.toLocaleTimeString();
+		this.date = ' 当前时间:  ' + this.year + '年' + this.month + '月' + this.day + '日' + ' 星期' + this.dayforweek + this.currtime;
+	}, 1000)
+
+	},
+	beforeDestroy() {
+		if(this.timer) {
+			clearInterval(this.timer);
+		}
+	}
+	})
+</script>
+
+</html>
